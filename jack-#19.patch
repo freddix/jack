@@ -1,0 +1,12 @@
+diff -aurN jack-1.9.9.orig/common/JackControlAPI.cpp jack-1.9.9/common/JackControlAPI.cpp
+--- jack-1.9.9.orig/common/JackControlAPI.cpp	2012-09-22 12:40:04.937324819 +0200
++++ jack-1.9.9/common/JackControlAPI.cpp	2012-09-22 22:03:03.682091729 +0200
+@@ -234,7 +234,7 @@
+             break;
+         case JackDriverParamBool:
+             jackctl_type = JackParamBool;
+-            jackctl_value.b = descriptor_ptr->value.i;
++            jackctl_value.b = (bool)descriptor_ptr->value.i;
+             break;
+         default:
+             jack_error("Unknown driver parameter type %i", (int)descriptor_ptr->type);
