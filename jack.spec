@@ -1,7 +1,7 @@
 Summary:	The JACK Audio Connection Kit
 Name:		jack
 Version:	1.9.9
-Release:	3.8
+Release:	4
 License:	LGPL v2.1+ (libjack), GPL v2+ (the rest)
 Group:		Daemons
 #Source0:	http://www.grame.fr/~letz/jack-%{version}.tgz
@@ -32,7 +32,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautostrip	.*%{_bindir}/jackd
 %define		_noautochrpath	.*%{_libdir}/jackd
-
 
 %description
 JACK is a low-latency audio server, written primarily for the Linux
@@ -79,11 +78,10 @@ JACK API documentation.
 %prep
 %setup -q
 %patch0 -p1
-#LINKFLAGS="%{rpmcflags} %{rpmldflags}"	\
-#CXXFLAGS="%{rpmcxxflags} -I/usr/include/ncurses"	\
 
 %build
-CXXFLAGS="-O1 -fno-tree-fre -I/usr/include/ncurses"	\
+LINKFLAGS="%{rpmcflags} %{rpmldflags}"	\
+CXXFLAGS="%{rpmcxxflags} -I/usr/include/ncurses"	\
 PREFIX="%{_prefix}"		\
 ./waf configure			\
 	--alsa			\
