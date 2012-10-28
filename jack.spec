@@ -1,7 +1,7 @@
 Summary:	The JACK Audio Connection Kit
 Name:		jack
 Version:	1.9.9
-Release:	4
+Release:	5
 License:	LGPL v2.1+ (libjack), GPL v2+ (the rest)
 Group:		Daemons
 #Source0:	http://www.grame.fr/~letz/jack-%{version}.tgz
@@ -14,13 +14,13 @@ URL:		http://jackit.sourceforge.net/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	celt-devel
 #BuildRequires:	doxygen
 BuildRequires:	libcap-devel
 BuildRequires:	libffado-devel
 BuildRequires:	libsamplerate-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	libtool
+#BuildRequires:	opus-devel
 BuildRequires:	pkg-config
 BuildRequires:	readline-devel
 Requires:	%{name}-libs = %{version}-%{release}
