@@ -1,14 +1,15 @@
 Summary:	The JACK Audio Connection Kit
 Name:		jack
-Version:	1.9.9
-Release:	5
+Version:	1.9.9.5
+Release:	1
 License:	LGPL v2.1+ (libjack), GPL v2+ (the rest)
 Group:		Daemons
 #Source0:	http://www.grame.fr/~letz/jack-%{version}.tgz
+Source0:	https://dl.dropbox.com/u/28869550/jack-1.9.9.5.tar.bz2
+# Source0-md5:	6c9de6b89db9d7076fa2ce222816cf4c
 # git clone  https://github.com/jackaudio/jack2
 # git archive --format=tar --prefix=jack-1.9.9/ HEAD | xz -c > jack-1.9.9.tar.xz
-Source0:	%{name}-%{version}.tar.xz
-# Source0-md5:	b9dc81a25b17e7e203d4042ec1433ce7
+#Source0:	%{name}-%{version}.tar.xz
 Patch0:		%{name}-link.patch
 URL:		http://jackit.sourceforge.net/
 BuildRequires:	alsa-lib-devel
@@ -77,7 +78,7 @@ JACK API documentation.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 
 %build
 LINKFLAGS="%{rpmcflags} %{rpmldflags}"	\
@@ -166,6 +167,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/jack_simple_session_client
 %attr(755,root,root) %{_bindir}/jack_test
 %attr(755,root,root) %{_bindir}/jack_thru
+%attr(755,root,root) %{_bindir}/jack_transport
 %attr(755,root,root) %{_bindir}/jack_unload
 %attr(755,root,root) %{_bindir}/jack_wait
 %attr(755,root,root) %{_bindir}/jack_zombie
